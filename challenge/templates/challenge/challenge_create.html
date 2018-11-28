@@ -1,0 +1,12 @@
+{% extends 'challenge/base.html' %}
+
+{% block content %}
+    <div class="create-challenge">
+        <h1>Nova postagem</h1>
+        <form method="POST" action="{% url 'challenge:challenge_create'%}" class="post-form" enctype="multipart/form'data'">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="save btn btn-default">Save</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+
+
+{% load static %}
+<html>
+    <head>
+        <title>Desafios </title>   
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">  
+        <link rel="stylesheet" href="{% static 'css/challenge.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+                
+            <h1><a href="/">Seus Desafios </a></h1><br> 
+            <nav>
+                <ul>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'challenge:challenge_create'%}">Novo Desafio</a></li>
+                    <li>  
+                        <form class="logout-link" action="{% url 'account:logout'%}" method="post">  
+                            {% csrf_token%}
+                            <button type="submit">Logout</button> 
+                        </form> 
+                    </li>
+                    
+                    {% else %}
+                    <li><a href="{% url 'account:login'%}">Login</a></li>
+                    <li><a href="{% url 'account:signup'%}">Registrar-se</a></li> 
+                    {% endif %}          
+                </ul>
+            </nav>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                <h1><a href="{% url 'challenge:challenge_list'%}">Meus Desafios</a></h1>
+                <hr  width=1000 size=8 noshade>
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </div> 
+    </body>
+</html>
