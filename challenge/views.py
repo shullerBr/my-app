@@ -64,18 +64,4 @@ def challenge_edit(request, pk):
          form = ChallengeForm(instance=challenge)
      return render(request, 'challenge/challenge_edit.html', {'form': form})
 
-#def challenge_new(request):
-#     if request.method == "POST":
-#         form = challengeForm(request.POST)
-#         if form.is_valid():
-#             challenge = form.save(commit=False)
-#             challenge.user = request.user
-#             challenge.title = request.title
-#             challenge.decription = request.decription
-             #challenge.created_date = timezone.now()
-#             challenge.save()
-#             return redirect('challenge_detail', pk=challenge.pk)
-#     else:
-#         form = challengeForm()
-#     return render(request, 'blog/challenge_edit.html', {'form': form})
 
