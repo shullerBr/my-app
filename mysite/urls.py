@@ -25,9 +25,7 @@ urlpatterns = [
     url(r'^challenge/', include('challenge.urls')),
     url(r'^account/', include('account.urls')),
     url(r'^$', challenge_views.challenge_list, name="home"),
-    #url('', include('challenge.urls')),
-    #path('', include('challenge.urls')),
-    #path('account/', include('account.urls')),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
